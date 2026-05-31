@@ -1,0 +1,73 @@
+
+=================================================================
+  A. TRAINING SET (ISPY2)
+=================================================================
+  Всего пациентов: 982
+  pCR=1 (ответчики)    : 316
+  pCR=0 (не ответчики) : 666
+  Молекулярные подтипы:
+    HRposHER2neg          : 381
+    TripleNeg             : 359
+    HER2pos               : 242
+  Internal splits (test col: 0=train,1=val,2=test):
+    train                 : 784
+    val                   : 99
+    test                  : 99
+
+=================================================================
+  B. MAMA-MIA ПОЛНЫЙ ДАТАСЕТ
+=================================================================
+  Всего случаев: 1506
+  По когортам ('dataset'):
+    ISPY2                 : 980
+    DUKE                  : 291
+    ISPY1                 : 171
+    NACT                  : 64
+
+=================================================================
+  C. УДАЛЕНО — ISPY2 OVERLAP
+=================================================================
+  Удалено: 980
+    ISPY2                 : 980
+  Примеры удалённых IDs:
+    ISPY2_100899
+    ISPY2_102011
+    ISPY2_102212
+    ISPY2_103693
+    ISPY2_103939
+    ISPY2_104268
+    ISPY2_104384
+    ISPY2_105286
+    ISPY2_105513
+    ISPY2_107700
+    ... ещё 970 (см. removed_overlap.csv)
+
+=================================================================
+  D. EXTERNAL VALIDATION SET (non-ISPY2)
+=================================================================
+  Итого: 526
+  По когортам:
+    DUKE                  : 291
+    ISPY1                 : 171
+    NACT                  : 64
+
+  Случаев с pCR меткой: 511
+  pCR по когортам:
+    DUKE                  : 280
+    ISPY1                 : 167
+    NACT                  : 64
+  Распределение pCR:
+    pCR = 0                 : 387
+    pCR = 1                 : 124
+
+=================================================================
+  E. ТЕКСТ ДЛЯ СТАТЬИ (Methods)
+=================================================================
+
+  For external validation, we used the MAMA-MIA dataset [REF],
+  a publicly available multi-center breast DCE-MRI collection
+  comprising 1506 cases with expert tumor segmentations.
+  To prevent data leakage, we identified and excluded 980
+  cases overlapping with our ISPY2 training cohort. The resulting
+  external validation set comprised 526 cases from independent
+  cohorts: DUKE (n=291), ISPY1 (n=171), NACT (n=64). Of these, 511 cases had available pCR labels.

@@ -1,0 +1,116 @@
+# =============================================================================
+# .gitignore for breast DCE-MRI segmentation research project
+# Keep: Python scripts, JSON configs, CSV results, figures, requirements
+# Exclude: MRI images, model weights, large archives, environments
+# =============================================================================
+
+# ── MRI IMAGE DATA ────────────────────────────────────────────────────────────
+*.nii
+*.nii.gz
+*.dcm
+*.mha
+*.nrrd
+*.nhdr
+*.img
+*.hdr
+
+# ── MODEL WEIGHTS & CHECKPOINTS ───────────────────────────────────────────────
+*.pth
+*.pt
+*.pkl
+*.npz
+*.h5
+*.hdf5
+*.onnx
+*.safetensors
+
+# ── LARGE ARCHIVES ────────────────────────────────────────────────────────────
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+*.gz
+*.7z
+*.rar
+*.tar.part_*
+*.sha256
+
+# ── DATA FOLDERS ─────────────────────────────────────────────────────────────
+images/
+images_2/
+segmentations/
+segmentations_2/
+data_main/
+extracted/
+priority_00_01/
+03_home_radiomics_nnunet_raw/
+04_raw_all_timepoint_dce/
+C:/nnw/
+
+# ── PYTHON ENVIRONMENT ────────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ── JUPYTER ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── IDE & OS ──────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── LOGS ─────────────────────────────────────────────────────────────────────
+*.log
+*.warnings.log
+
+# =============================================================================
+# EXPLICITLY KEEP (override rules above where needed)
+# =============================================================================
+
+# keep all Python scripts
+!**/*.py
+
+# keep JSON configs and results
+!**/*.json
+!plans.json
+!dataset.json
+!dataset_fingerprint.json
+
+# keep CSV results and manifests
+<!-- !**/*.csv
+!*.csv -->
+
+# keep figures
+<!-- !**/*.png
+!**/*.pdf
+!**/*.svg -->
+
+# keep metadata TSV
+<!-- !**/*.tsv -->
+
+# keep requirements
+!requirements.txt
+!*.txt
+
+# keep this file
+!.gitignore
+!README.md
+
+02_full_models_results/
+03_home_radiomics_nnunet_raw
+priority_00_01
+venv/
+segmentations_2/
+images_2/
