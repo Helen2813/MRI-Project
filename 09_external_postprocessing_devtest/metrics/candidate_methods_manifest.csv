@@ -1,0 +1,35 @@
+method,family,description,uses_dev_tuned_param,paper_safe_if_selected_on_dev
+v2_raw,baseline,Timing-aware v2 raw binary prediction.,False,True
+v2_lcc,standard_lcc,Always keep largest connected component from v2 prediction.,False,True
+v2_lcc_fillholes,standard_lcc,v2 largest connected component followed by 3D hole filling.,False,True
+v2_remove_small_50,small_component_removal,Remove v2 connected components smaller than 50 voxels.,False,True
+v2_remove_small_50_fillholes,small_component_removal,"Remove v2 components <50 voxels, then fill holes.",False,True
+v2_remove_small_100,small_component_removal,Remove v2 connected components smaller than 100 voxels.,False,True
+v2_remove_small_100_fillholes,small_component_removal,"Remove v2 components <100 voxels, then fill holes.",False,True
+v2_remove_small_250,small_component_removal,Remove v2 connected components smaller than 250 voxels.,False,True
+v2_remove_small_250_fillholes,small_component_removal,"Remove v2 components <250 voxels, then fill holes.",False,True
+v2_remove_small_500,small_component_removal,Remove v2 connected components smaller than 500 voxels.,False,True
+v2_remove_small_500_fillholes,small_component_removal,"Remove v2 components <500 voxels, then fill holes.",False,True
+v2_remove_small_1000,small_component_removal,Remove v2 connected components smaller than 1000 voxels.,False,True
+v2_remove_small_1000_fillholes,small_component_removal,"Remove v2 components <1000 voxels, then fill holes.",False,True
+v2_cond_lcc_largestfrac_le_0p5,conditional_lcc_largest_fraction,Apply LCC only if v2 largest-component fraction <= 0.50.,False,True
+v2_cond_lcc_largestfrac_le_0p6,conditional_lcc_largest_fraction,Apply LCC only if v2 largest-component fraction <= 0.60.,False,True
+v2_cond_lcc_largestfrac_le_0p7,conditional_lcc_largest_fraction,Apply LCC only if v2 largest-component fraction <= 0.70.,False,True
+v2_cond_lcc_largestfrac_le_0p8,conditional_lcc_largest_fraction,Apply LCC only if v2 largest-component fraction <= 0.80.,False,True
+v2_cond_lcc_largestfrac_le_0p9,conditional_lcc_largest_fraction,Apply LCC only if v2 largest-component fraction <= 0.90.,False,True
+v2_cond_lcc_largestfrac_le_0p95,conditional_lcc_largest_fraction,Apply LCC only if v2 largest-component fraction <= 0.95.,False,True
+v2_cond_lcc_ncomp_ge_2,conditional_lcc_n_components,Apply LCC only if v2 has at least 2 connected components.,False,True
+v2_cond_lcc_ncomp_ge_3,conditional_lcc_n_components,Apply LCC only if v2 has at least 3 connected components.,False,True
+v2_cond_lcc_ncomp_ge_4,conditional_lcc_n_components,Apply LCC only if v2 has at least 4 connected components.,False,True
+v2_cond_lcc_ncomp_ge_5,conditional_lcc_n_components,Apply LCC only if v2 has at least 5 connected components.,False,True
+v2_cond_lcc_predvol_gt_q75,conditional_lcc_predicted_volume,Apply LCC only if v2 predicted volume > 48.290 cm3 (q75 dev quantile).,True,True
+v2_cond_lcc_predvol_gt_q85,conditional_lcc_predicted_volume,Apply LCC only if v2 predicted volume > 62.519 cm3 (q85 dev quantile).,True,True
+v2_cond_lcc_predvol_gt_q90,conditional_lcc_predicted_volume,Apply LCC only if v2 predicted volume > 75.631 cm3 (q90 dev quantile).,True,True
+v2_cond_lcc_predvol_gt_q95,conditional_lcc_predicted_volume,Apply LCC only if v2 predicted volume > 112.942 cm3 (q95 dev quantile).,True,True
+v1v2_intersection,v1_v2_consensus,Intersection of v1 and v2 predictions; conservative consensus.,False,True
+v1v2_intersection_lcc,v1_v2_consensus,Intersection of v1 and v2 predictions followed by LCC.,False,True
+v1v2_union_lcc,v1_v2_consensus,Union of v1 and v2 predictions followed by LCC.,False,True
+v2_lcc_intersect_v1,v1_v2_consensus,v2 LCC intersected with v1 raw prediction.,False,True
+v2_lcc_union_v1_lcc,v1_v2_consensus,Union of v2 LCC and v1 LCC.,False,True
+v1_raw,context_v1,Baseline v1 raw prediction for reference.,False,False
+v1_lcc,context_v1,v1 largest connected component for reference.,False,False

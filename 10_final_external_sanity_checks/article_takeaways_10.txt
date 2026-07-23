@@ -1,0 +1,56 @@
+10 FINAL EXTERNAL SANITY CHECKS — QUICK TAKEAWAYS
+========================================================================
+Cases analyzed: 526
+
+Primary method: v2_lcc
+  Mean Dice: 0.5738
+  Median predicted/GT volume ratio: 1.1040
+  Mean predicted/GT volume ratio: 2.2770
+  Mean theoretical max Dice from volume ratio: 0.7449
+  Mean Dice utilization of that bound: 0.7371
+  Mean Dice gap to bound: 0.1711
+
+Volume-bound diagnostic groups:
+  near_volume_bound: n=305, Dice=0.7681, max_by_volume=0.8514, utilization=0.9040
+  volume_ratio_limits_dice: n=100, Dice=0.1852, max_by_volume=0.3230, utilization=0.5446
+  mixed_volume_and_spatial_error: n=97, Dice=0.4861, max_by_volume=0.8130, utilization=0.5719
+  spatial_or_boundary_mismatch_beyond_volume: n=24, Dice=0.0784, max_by_volume=0.8748, utilization=0.0859
+
+Top exploratory correlations with v2_lcc_dice:
+  v2_raw_largest_component_fraction: rho=0.409, p=1.26e-22, q=4.55e-21, n=526
+  v1_raw_largest_component_fraction: rho=0.386, p=3.93e-20, q=1.14e-18, n=526
+  v2_raw_n_components: rho=-0.363, p=7.71e-18, q=1.86e-16, n=526
+  v1_raw_n_components: rho=-0.357, p=2.79e-17, q=5.78e-16, n=526
+  v2_raw_pred_to_gt_vol_ratio: rho=-0.340, p=9.97e-16, q=1.61e-14, n=526
+  v1_raw_pred_to_gt_vol_ratio: rho=-0.339, p=1.29e-15, q=1.87e-14, n=526
+  v2_raw_second_largest_component_fraction: rho=-0.334, p=3.55e-15, q=4.67e-14, n=526
+  v2_lcc_pred_to_gt_vol_ratio: rho=-0.287, p=1.91e-11, q=1.21e-10, n=526
+
+High inter-feature correlations among candidate failure factors (|rho| >= 0.70):
+  gt_vol_cm3 vs log_gt_vol_cm3: rho=1.000, q=0
+  kin_fg_max_enh vs kin_fg_auc_enh_norm: rho=0.991, q=0
+  v2_raw_n_components vs v1_raw_n_components: rho=0.990, q=0
+  v2_raw_pred_to_gt_vol_ratio vs v1_raw_pred_to_gt_vol_ratio: rho=0.988, q=0
+  v2_raw_pred_vol_cm3 vs v2_lcc_pred_vol_cm3: rho=0.973, q=0
+  v2_raw_largest_component_fraction vs v1_raw_largest_component_fraction: rho=0.966, q=1.15e-307
+  kin_gt_max_enh vs kin_gt_auc_enh_norm: rho=0.962, q=6.8e-295
+  kin_ring_max_enh vs kin_ring_auc_enh_norm: rho=0.959, q=4.12e-286
+  kin_tumor_to_ring_max_enh_diff vs kin_tumor_to_ring_auc_norm_diff: rho=0.950, q=9.33e-265
+  v2_raw_pred_to_gt_vol_ratio vs v2_lcc_pred_to_gt_vol_ratio: rho=0.929, q=6.87e-227
+  v2_raw_largest_component_fraction vs v2_raw_second_largest_component_fraction: rho=-0.926, q=9.78e-222
+  v2_lcc_pred_to_gt_vol_ratio vs v1_raw_pred_to_gt_vol_ratio: rho=0.909, q=5.41e-200
+
+Exploratory OLS R^2 by predictor family, for interpretation only:
+  cohort_plus_volume_components: R2=0.330, n=526, p=6
+  volume_ratio_plus_components: R2=0.311, n=526, p=4
+  component_structure_only: R2=0.248, n=526, p=3
+  volume_ratio_only: R2=0.131, n=526, p=2
+  tumor_size_only: R2=0.092, n=526, p=2
+  cohort_only: R2=0.009, n=526, p=2
+  timing_only: R2=0.005, n=526, p=3
+
+Manuscript-safe interpretation:
+  1) Predicted/GT volume ratio should be described as a diagnostic decomposition of Dice failure, not an independent causal factor, because Dice is mathematically constrained by mask volumes.
+  2) Component-count, largest-component fraction, and volume-ratio findings should be grouped as one component/foreground-instability signature if they are collinear.
+  3) Use effect sizes and BH/FDR-corrected exploratory correlations; avoid claiming that any single factor explains the external drop unless effect sizes are large and robust.
+  4) If actual Dice is far below the theoretical volume-ratio upper bound, describe this as spatial or boundary mismatch beyond simple volume imbalance.

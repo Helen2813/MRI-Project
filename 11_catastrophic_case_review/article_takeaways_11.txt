@@ -1,0 +1,29 @@
+11 CATASTROPHIC CASE REVIEW — TAKEAWAYS
+========================================================================
+
+Cases loaded: 526
+Selected for visual/technical review: 30
+Catastrophic group name: spatial_or_boundary_mismatch_beyond_volume
+Catastrophic cases selected: 0
+
+Cleaned high intercorrelations excluding trivial transform/self pairs:
+  kin_ring_first_post_s vs kin_fg_first_post_s: rho=1.000, n=526
+  kin_gt_first_post_s vs kin_ring_first_post_s: rho=1.000, n=526
+  kin_first_post_s vs kin_ring_first_post_s: rho=1.000, n=526
+  kin_gt_first_post_s vs kin_fg_first_post_s: rho=1.000, n=526
+  kin_first_post_s vs kin_fg_first_post_s: rho=1.000, n=526
+  kin_first_post_s vs kin_gt_first_post_s: rho=1.000, n=526
+  kin_first_post_s vs kin_early_dev_s: rho=1.000, n=526
+  kin_early_dev_s vs kin_ring_first_post_s: rho=1.000, n=526
+  kin_early_dev_s vs kin_fg_first_post_s: rho=1.000, n=526
+  early_dev_s vs kin_gt_first_post_s: rho=1.000, n=526
+  early_dev_s vs kin_fg_first_post_s: rho=1.000, n=526
+  early_dev_s vs kin_first_post_s: rho=1.000, n=526
+  kin_early_dev_s vs kin_gt_first_post_s: rho=1.000, n=526
+  early_dev_s vs kin_ring_first_post_s: rho=1.000, n=526
+  v1_small50_pred_vol_cm3 vs v1_small100_pred_vol_cm3: rho=1.000, n=526
+
+Suggested wording:
+  Use this review to verify that catastrophic spatial-mismatch cases are genuine model/domain failures rather than case-ID, geometry, or coordinate-frame artifacts.
+  If geometry is consistent but centroid distances are large, describe these as severe spatial localization/boundary failures.
+  If geometry mismatches are found, fix preprocessing/evaluation before finalizing any external metrics.

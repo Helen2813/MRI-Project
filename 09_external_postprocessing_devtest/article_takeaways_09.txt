@@ -1,0 +1,51 @@
+09 EXTERNAL POSTPROCESSING DEV/TEST ANALYSIS — QUICK TAKEAWAYS
+==============================================================================
+Cases evaluated: 526
+Dev fraction: 0.30  seed=2813
+
+Split counts:
+  test: 367
+  dev: 159
+
+Main method performance by split:
+  DEV:
+    v2_raw                              Dice=0.5661 Prec=0.5403 Rec=0.7321 CI95=[0.5327, 0.6023]
+    v2_lcc                              Dice=0.5999 Prec=0.6231 Rec=0.6616 CI95=[0.5572, 0.6425]
+    v2_lcc_fillholes                    Dice=0.6045 Prec=0.6245 Rec=0.6698 CI95=[0.5607, 0.6472]
+  TEST:
+    v2_raw                              Dice=0.5508 Prec=0.5273 Rec=0.7326 CI95=[0.5259, 0.5744]
+    v2_lcc                              Dice=0.5597 Prec=0.5828 Rec=0.6294 CI95=[0.5283, 0.5897]
+    v2_lcc_fillholes                    Dice=0.5628 Prec=0.5838 Rec=0.6354 CI95=[0.5309, 0.5931]
+
+Dev-selected candidate: v2_lcc_fillholes
+Held-out TEST ΔDice vs v2_lcc: +0.0031
+Interpretation: dev-selected rule did not clearly improve over standard v2+LCC on held-out test.
+
+Top 10 methods on DEV by selection score:
+  v2_lcc_fillholes                         score=0.6045 Dice=0.6045 Prec=0.6245 Rec=0.6698
+  v2_cond_lcc_ncomp_ge_2                   score=0.5999 Dice=0.5999 Prec=0.6231 Rec=0.6616
+  v2_cond_lcc_ncomp_ge_3                   score=0.5999 Dice=0.5999 Prec=0.6231 Rec=0.6616
+  v2_cond_lcc_ncomp_ge_4                   score=0.5999 Dice=0.5999 Prec=0.6231 Rec=0.6616
+  v2_lcc                                   score=0.5999 Dice=0.5999 Prec=0.6231 Rec=0.6616
+  v2_cond_lcc_ncomp_ge_5                   score=0.5999 Dice=0.5999 Prec=0.6230 Rec=0.6616
+  v2_cond_lcc_largestfrac_le_0p95          score=0.5984 Dice=0.5984 Prec=0.6193 Rec=0.6620
+  v2_cond_lcc_largestfrac_le_0p9           score=0.5952 Dice=0.5952 Prec=0.6126 Rec=0.6626
+  v2_lcc_union_v1_lcc                      score=0.5949 Dice=0.5949 Prec=0.6078 Rec=0.6746
+  v2_lcc_intersect_v1                      score=0.5937 Dice=0.5956 Prec=0.6243 Rec=0.6541
+
+Top 10 methods on TEST by Dice (screening only; not selection-safe):
+  v2_remove_small_500_fillholes            Dice=0.5680 Prec=0.5545 Rec=0.7361
+  v2_remove_small_1000_fillholes           Dice=0.5652 Prec=0.5554 Rec=0.7238
+  v2_remove_small_250_fillholes            Dice=0.5652 Prec=0.5491 Rec=0.7365
+  v2_remove_small_500                      Dice=0.5650 Prec=0.5534 Rec=0.7297
+  v2_lcc_fillholes                         Dice=0.5628 Prec=0.5838 Rec=0.6354
+  v1v2_intersection_lcc                    Dice=0.5622 Prec=0.5862 Rec=0.6316
+  v2_remove_small_1000                     Dice=0.5622 Prec=0.5543 Rec=0.7174
+  v2_remove_small_250                      Dice=0.5621 Prec=0.5479 Rec=0.7301
+  v2_remove_small_100_fillholes            Dice=0.5619 Prec=0.5429 Rec=0.7372
+  v2_remove_small_50_fillholes             Dice=0.5598 Prec=0.5391 Rec=0.7377
+
+Important caution:
+  Use DEV to choose a rule and TEST for the honest estimate. Do not describe the TEST-best
+  method as tuned/final unless it was selected before viewing TEST results.
+  If no candidate clearly beats v2+LCC on TEST, keep v2+LCC as the paper-safe no-training pipeline.

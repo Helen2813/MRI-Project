@@ -1,0 +1,8 @@
+predictor_family,ols_r2_exploratory,n_complete,n_predictors_used
+cohort_plus_volume_components,0.33038257643706104,526,6
+volume_ratio_plus_components,0.3107019988834415,526,4
+component_structure_only,0.24756624526005533,526,3
+volume_ratio_only,0.13122749918167353,526,2
+tumor_size_only,0.09241910131218445,526,2
+cohort_only,0.00876952759754035,526,2
+timing_only,0.0053016666024438,526,3
