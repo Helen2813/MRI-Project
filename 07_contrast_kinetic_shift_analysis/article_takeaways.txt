@@ -1,0 +1,46 @@
+CONTRAST-KINETIC SHIFT ANALYSIS — QUICK TAKEAWAYS
+======================================================================
+
+Cases analyzed: 526
+Cohort counts:
+  DUKE: 291
+  ISPY1: 171
+  NACT: 64
+
+First post-contrast timing by cohort:
+  DUKE: mean=241.0s, median=210.0s, n=291
+  ISPY1: mean=360.0s, median=370.0s, n=171
+  NACT: mean=441.7s, median=420.5s, n=64
+
+Overall v2+LCC Dice: 0.5738
+v2+LCC Dice by phase quality:
+  acceptable: mean=0.5576, n=213
+  good: mean=0.5960, n=154
+  no_times: mean=0.6333, n=13
+  poor: mean=0.5687, n=146
+
+Postprocessing comparison, overall mean Dice:
+  v2_raw_dice: 0.5554
+  v2_lcc_dice: 0.5738
+  v2_kinetic_cc_dice: 0.2596
+
+Strongest absolute Spearman correlations with v2+LCC Dice:
+  tumor_to_fg_max_enh_diff: rho=-0.057, p=0.1893, n=526
+  tumor_to_ring_max_enh_diff: rho=-0.054, p=0.2136, n=526
+  gt_max_enh: rho=-0.051, p=0.2445, n=526
+  gt_washout_index: rho=0.048, p=0.2729, n=526
+  ring_auc_enh_norm: rho=-0.044, p=0.3144, n=526
+  ring_max_enh: rho=-0.036, p=0.4156, n=526
+  gt_late_slope: rho=0.027, p=0.6487, n=283
+  first_post_s: rho=-0.026, p=0.5445, n=526
+  late_dev_s: rho=-0.026, p=0.5445, n=526
+  last_post_s: rho=-0.026, p=0.5454, n=526
+
+Suggested manuscript framing:
+  Use these results as contrast-kinetic/failure-attribution evidence, not as proof
+  that timing alone explains the external Dice drop. If no single feature has a
+  strong effect size, write that degradation appears multifactorial.
+
+Important caution:
+  Kinetic-component postprocessing is exploratory and should not be described as
+  a tuned final method unless it is validated on a separate held-out split.

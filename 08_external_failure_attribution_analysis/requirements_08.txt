@@ -1,0 +1,7 @@
+numpy
+pandas
+SimpleITK
+matplotlib
+scipy
+scikit-learn
+openpyxl

@@ -1,0 +1,68 @@
+08 EXTERNAL FAILURE ATTRIBUTION — QUICK TAKEAWAYS
+========================================================================
+Cases analyzed: 526
+
+Pipeline performance, mean Dice:
+  v1_raw: 0.5473
+  v1_lcc: 0.5688
+  v2_raw: 0.5554
+  v2_lcc: 0.5738
+  v1_small50: 0.5556
+  v1_small100: 0.5583
+  v2_small50: 0.5636
+  v2_small100: 0.5662
+  kin_v1_raw: 0.5473
+  kin_v1_lcc: 0.5688
+  kin_v2_raw: 0.5554
+  kin_v2_lcc: 0.5738
+  kin_v2_kinetic_cc: 0.2596
+  kin_delta_v2_lcc_minus_raw: 0.0184
+  kin_delta_kineticcc_minus_lcc: -0.3142
+  v1_raw_error_1_minus: 0.4527
+  v1_lcc_error_1_minus: 0.4312
+  v1_small50_error_1_minus: 0.4444
+  v1_small100_error_1_minus: 0.4417
+  v2_raw_error_1_minus: 0.4446
+  v2_lcc_error_1_minus: 0.4262
+  v2_small50_error_1_minus: 0.4364
+  v2_small100_error_1_minus: 0.4338
+
+Primary pipeline (v2_lcc) precision/recall:
+  precision: 0.6010
+  recall   : 0.6373
+
+Failure-type counts:
+  good_segmentation: 252
+  volume_inflation_oversegmentation: 60
+  mixed_or_boundary_error: 53
+  low_volume_undersegmentation: 50
+  small_lesion_failure: 49
+  severe_miss_or_undersegmentation: 34
+  oversegmentation: 16
+  undersegmentation: 12
+
+Predicted/GT volume ratio, primary pipeline:
+  median: 1.104
+  mean  : 2.277
+  q25/q75: 0.809 / 1.632
+
+Strongest exploratory correlations with v2_lcc_dice:
+  v2_raw_largest_component_fraction: rho=0.409, p=1.255e-22, q(BH)=1.469e-20, n=526
+  v1_raw_largest_component_fraction: rho=0.386, p=3.931e-20, q(BH)=2.3e-18, n=526
+  v2_raw_n_components: rho=-0.363, p=7.708e-18, q(BH)=2.255e-16, n=526
+  kin_n_components: rho=-0.363, p=7.708e-18, q(BH)=2.255e-16, n=526
+  v1_raw_n_components: rho=-0.357, p=2.789e-17, q(BH)=6.526e-16, n=526
+  v2_raw_pred_to_gt_vol_ratio: rho=-0.340, p=9.966e-16, q(BH)=1.943e-14, n=526
+  v1_raw_pred_to_gt_vol_ratio: rho=-0.339, p=1.289e-15, q(BH)=2.154e-14, n=526
+  v2_raw_second_largest_component_fraction: rho=-0.334, p=3.549e-15, q(BH)=5.191e-14, n=526
+  v2_small50_pred_to_gt_vol_ratio: rho=-0.333, p=4.387e-15, q(BH)=5.703e-14, n=526
+  v2_small100_pred_to_gt_vol_ratio: rho=-0.331, p=5.922e-15, q(BH)=6.929e-14, n=526
+
+Suggested manuscript framing:
+  Use this analysis to explain external failure modes, especially oversegmentation, tumor-size
+  sensitivity, component-level false positives, and cohort/domain effects. Do not present
+  these post-hoc analyses as a tuned final method unless validated on a separate held-out split.
+
+Important caution:
+  Correlations are exploratory. If many factors are tested, report effect sizes and use BH/FDR
+  correction or clearly mark the analysis as hypothesis-generating.
